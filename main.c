@@ -6,11 +6,10 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 03:34:57 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/10/12 07:13:01 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/10/13 04:32:43 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Libft/libft.h"
 #include "push_swap.h"
 
 // 2 meter los argumentos en una lista
@@ -32,7 +31,33 @@ t_list	*ft_inistack(int value)
 	return (n_node);
 }
 
-int input_ok(char **str)
+t_list	*ft_lstlast(t_list *lst)
+{
+	while (lst && lst->next != NULL)
+	{
+		lst = lst->next;
+	}
+	return (lst);
+}
+
+void    ft_lstadd_back(t_list **lst, t_list *new)
+{
+    t_list  *last;
+    
+    if (!new)
+        return ;
+    if (!*lst)
+    {
+        *lst = new;
+        return ;
+    }
+    else
+    {
+        last = ft_lstlast(*lst);
+        last->next = new;
+    }
+}
+int input_ok(char *str)
 {
     int i = 0;
     
@@ -40,7 +65,7 @@ int input_ok(char **str)
         i++;
     while (str[i])
     {
-        if (!ft_isdigit(str[i]));
+        if (!ft_isdigit(str[i]))
             return (0);
         i++;
     }
@@ -79,23 +104,20 @@ void    generate_stack(char *arg, t_list **stack)
     x = 0;
     
     values = ft_split(arg,' ');
-
-    if (!input_ok(arg))
-        return (NULL);
-    
     
     while (values[i])
     {
         if (input_ok(values[i]))
         {
             x = ft_atoi(values[i]);
-            stack = ft_inistack(x); 
+            ft_lstadd_back(stack, ft_inistack(x));
         }
         else
             printf("mamaste");
+        free(values[i]);
         i++;
     }
-    
+    free(values);
 }
 
 
@@ -107,18 +129,18 @@ int main (int argc, char **argv)
 {
    t_list *hola;
    int i = 1;
-
+    int cont = 0;
     // while (i < argv)
     // {
         
     // }
-    
 
-   generate_stack(argv[i] ,&hola);
 
-   while (hola)
+   while (cont <= argc && hola != NULL)
    {
-        printf("%p",hola->value);
+        generate_stack(argv[i] ,&hola);
+        printf("valor %d %d\n",cont,hola->value);
+        cont ++;
         hola = hola->next;
    }
 }
