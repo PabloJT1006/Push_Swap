@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 03:26:36 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/10/12 23:32:40 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/10/16 19:23:23 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 # define PUSH_SWAP_H
 
-typedef struct	a_list
+typedef struct	stack
 {
 int			    value;
 struct a_list	*next;

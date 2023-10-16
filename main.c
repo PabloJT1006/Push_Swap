@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 03:34:57 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/10/13 04:32:43 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/10/16 19:22:45 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,10 @@ void    ft_lstadd_back(t_list **lst, t_list *new)
         *lst = new;
         return ;
     }
-    else
-    {
-        last = ft_lstlast(*lst);
-        last->next = new;
-    }
+    last = ft_lstlast(*lst);
+    last->next = new;
 }
+
 int input_ok(char *str)
 {
     int i = 0;
@@ -110,6 +108,7 @@ void    generate_stack(char *arg, t_list **stack)
         if (input_ok(values[i]))
         {
             x = ft_atoi(values[i]);
+            // printf("values %d \n",x);
             ft_lstadd_back(stack, ft_inistack(x));
         }
         else
@@ -126,21 +125,24 @@ void    generate_stack(char *arg, t_list **stack)
 
 // gilipollas cada arg que este separado por los espacios se coge como un str
 int main (int argc, char **argv)
-{
+{ 
    t_list *hola;
-   int i = 1;
-    int cont = 0;
+    int cont = 1;
+    //COMO NO INICIALICES EL NODO TE VAS A LA PUTA :)
+    hola = NULL;
     // while (i < argv)
     // {
         
     // }
 
 
-   while (cont <= argc && hola != NULL)
+   while (cont < argc)
    {
-        generate_stack(argv[i] ,&hola);
+        generate_stack(argv[cont] ,&hola);
         printf("valor %d %d\n",cont,hola->value);
-        cont ++;
         hola = hola->next;
+        cont ++;
    }
+   if (duplicate(hola))
+        printf("mamaste");
 }
