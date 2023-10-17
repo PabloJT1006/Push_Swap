@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 03:34:57 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/10/16 19:22:45 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/10/17 19:32:20 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,78 +18,7 @@
 // antes de pasar los numeros al stack castearlo
 
 //COMPROBACION DE QUE EL INPUT ES CORRECTO 
-t_list	*ft_inistack(int value)
-{
-	t_list	*n_node;
-	
-	n_node = (t_list*)malloc(sizeof(t_list));
-	
-	if (!n_node)
-		return (NULL);
-	n_node->value = value;
-	n_node->next = NULL;
-	return (n_node);
-}
 
-t_list	*ft_lstlast(t_list *lst)
-{
-	while (lst && lst->next != NULL)
-	{
-		lst = lst->next;
-	}
-	return (lst);
-}
-
-void    ft_lstadd_back(t_list **lst, t_list *new)
-{
-    t_list  *last;
-    
-    if (!new)
-        return ;
-    if (!*lst)
-    {
-        *lst = new;
-        return ;
-    }
-    last = ft_lstlast(*lst);
-    last->next = new;
-}
-
-int input_ok(char *str)
-{
-    int i = 0;
-    
-    if (str[i] == '-' || str[i] == '+')
-        i++;
-    while (str[i])
-    {
-        if (!ft_isdigit(str[i]))
-            return (0);
-        i++;
-    }
-    return (1);
-}
-
-int duplicate(t_list *stack)
-{
-    t_list  *tmp;
-    t_list  *tmp2;
-
-    tmp = stack;
-
-    while (tmp)
-    {
-        tmp2 = tmp->next;
-        while(tmp2)
-        {
-            if (tmp->value == tmp2->value)
-                return (0);
-            tmp2 = tmp2->next;
-        }
-        tmp= tmp->next;
-    }
-    return (1);
-}
 
 void    generate_stack(char *arg, t_list **stack)
 {
@@ -135,14 +64,13 @@ int main (int argc, char **argv)
         
     // }
 
-
    while (cont < argc)
    {
         generate_stack(argv[cont] ,&hola);
         printf("valor %d %d\n",cont,hola->value);
-        hola = hola->next;
+        
         cont ++;
    }
-   if (duplicate(hola))
-        printf("mamaste");
+    printf("%d", hola->next->value);
 }
+//te estaba dando segfault potque incrementeabas en el t_list sin necesidad de hacerlo
