@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:28:47 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/10/17 17:29:20 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/10/18 23:50:26 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ int duplicate(t_list *stack)
         while(tmp2)
         {
             if (tmp->value == tmp2->value)
-                return (0);
+                return (1);
             tmp2 = tmp2->next;
         }
         tmp= tmp->next;
     }
-    return (1);
+    return (0);
 }

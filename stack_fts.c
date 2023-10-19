@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 19:06:58 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/10/17 19:25:04 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/10/18 23:29:00 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ void    free_stack(t_list **stack)
     
     if (!stack || !(*stack))
         return ;
-    printf("hoal");
     tmp = *stack;
     while (*stack)
     {

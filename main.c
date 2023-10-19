@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 03:34:57 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/10/17 19:32:20 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/10/18 23:50:12 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,21 +41,18 @@ void    generate_stack(char *arg, t_list **stack)
             ft_lstadd_back(stack, ft_inistack(x));
         }
         else
-            printf("mamaste");
+            errors(stack,stack);
         free(values[i]);
         i++;
     }
     free(values);
 }
 
-
-
-
-
 // gilipollas cada arg que este separado por los espacios se coge como un str
 int main (int argc, char **argv)
 { 
    t_list *hola;
+   t_list *adios = NULL;
     int cont = 1;
     //COMO NO INICIALICES EL NODO TE VAS A LA PUTA :)
     hola = NULL;
@@ -67,10 +64,16 @@ int main (int argc, char **argv)
    while (cont < argc)
    {
         generate_stack(argv[cont] ,&hola);
-        printf("valor %d %d\n",cont,hola->value);
-        
         cont ++;
    }
-    printf("%d", hola->next->value);
+    if (duplicate(hola))
+    {
+        errors(&hola,&adios);
+    }
+   while (hola)
+   {
+        printf("%d\n",hola->value);
+        hola = hola->next;
+   }
 }
 //te estaba dando segfault potque incrementeabas en el t_list sin necesidad de hacerlo
