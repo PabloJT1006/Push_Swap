@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 03:34:57 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/10/18 23:50:12 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/10/20 04:45:30 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,9 @@ void    generate_stack(char *arg, t_list **stack)
 int main (int argc, char **argv)
 { 
    t_list *hola;
-   t_list *adios = NULL;
+   t_list *src;
+   t_list *dest = NULL;
+   t_list *aux;
     int cont = 1;
     //COMO NO INICIALICES EL NODO TE VAS A LA PUTA :)
     hola = NULL;
@@ -60,7 +62,7 @@ int main (int argc, char **argv)
     // {
         
     // }
-
+// GENERANDO STACK----------------------------------------------------------------------
    while (cont < argc)
    {
         generate_stack(argv[cont] ,&hola);
@@ -68,12 +70,42 @@ int main (int argc, char **argv)
    }
     if (duplicate(hola))
     {
-        errors(&hola,&adios);
+        errors(&hola,&dest);
     }
-   while (hola)
-   {
-        printf("%d\n",hola->value);
-        hola = hola->next;
-   }
+// PROBANDO ROTATE---------------------------------------------------------------------------
+aux = hola;
+src = hola;
+while (hola)
+{
+    printf("Vhola:%d\n",hola->value);
+    hola = hola->next;
 }
-//te estaba dando segfault potque incrementeabas en el t_list sin necesidad de hacerlo
+    printf("USOS DEL ROTATE\n");
+    rotate(&aux);
+
+   while (aux)
+   {
+        printf("Vaux:%d\n",aux->value);
+        aux = aux->next;
+   }
+// COMPROBANDO PUSH ------------------------------------------------------
+printf("\n\nCOMPROBACION DEL PUSH---------------------------------->\n");
+push(&src,&dest);
+
+printf("valores del origen---------------------------\n");
+
+while (src)
+{
+    printf("Vb:%d\n",src->value);
+    src = src->next;
+}
+printf("------------------------------------------------\n\n");
+printf("valores del destino---------------------------\n");
+while (dest)
+{
+    printf("Vb:%d\n",dest->value);
+    dest = dest->next;
+}
+printf("------------------------------------------------\n\n");
+
+}

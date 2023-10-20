@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 03:26:36 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/10/17 17:36:05 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/10/20 04:18:17 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@
 typedef struct	t_list
 {
 int			    value;
+int             index;
 struct t_list	*next;
+struct t_list	*prev;
 }               t_list;
 
 int	ft_atoi(const char *nptr);
@@ -41,4 +43,8 @@ void    free_stack(t_list **stack);
 void    errors(t_list **a_stack, t_list **b_stack);
 int input_ok(char *str);
 int duplicate(t_list *stack);
+// void swap_nodes(t_list **top);
+void    rotate(t_list **stack);
+
+void push (t_list **src, t_list **dest);
 #endif

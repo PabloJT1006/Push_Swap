@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 19:06:58 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/10/18 23:29:00 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/10/20 03:36:12 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,23 +22,23 @@ t_list	*ft_inistack(int value)
 		return (NULL);
 	n_node->value = value;
 	n_node->next = NULL;
+    n_node->prev = NULL;
 	return (n_node);
 }
 
-
 t_list	*ft_lstlast(t_list *lst)
 {
-	while (lst && lst->next != NULL)
+    while (lst && lst->next != NULL)
 	{
 		lst = lst->next;
 	}
+    
 	return (lst);
 }
 
 void    ft_lstadd_back(t_list **lst, t_list *new)
 {
     t_list  *last;
-    
     if (!new)
         return ;
     if (!*lst)
@@ -48,6 +48,7 @@ void    ft_lstadd_back(t_list **lst, t_list *new)
     }
     last = ft_lstlast(*lst);
     last->next = new;
+    new->prev = last;
 }
 
 
