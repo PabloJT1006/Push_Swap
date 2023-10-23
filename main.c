@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 03:34:57 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/10/20 04:45:30 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/10/23 17:46:38 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,40 +72,37 @@ int main (int argc, char **argv)
     {
         errors(&hola,&dest);
     }
-// PROBANDO ROTATE---------------------------------------------------------------------------
-aux = hola;
+// PROBANDO ROTATE Y PUSH---------------------------------------------------------------------------
 src = hola;
-while (hola)
-{
-    printf("Vhola:%d\n",hola->value);
-    hola = hola->next;
-}
-    printf("USOS DEL ROTATE\n");
-    rotate(&aux);
+aux = ft_inistack(9);
+ft_lstadd_back(&aux,ft_inistack(7));
+ft_lstadd_back(&aux,ft_inistack(65));
 
-   while (aux)
-   {
-        printf("Vaux:%d\n",aux->value);
-        aux = aux->next;
-   }
-// COMPROBANDO PUSH ------------------------------------------------------
-printf("\n\nCOMPROBACION DEL PUSH---------------------------------->\n");
-push(&src,&dest);
-
-printf("valores del origen---------------------------\n");
+rotate(&src);
 
 while (src)
 {
-    printf("Vb:%d\n",src->value);
+    printf("Vsrc:%d\n",src->value);
     src = src->next;
 }
-printf("------------------------------------------------\n\n");
-printf("valores del destino---------------------------\n");
-while (dest)
-{
-    printf("Vb:%d\n",dest->value);
-    dest = dest->next;
-}
-printf("------------------------------------------------\n\n");
+// COMPROBANDO PUSH ------------------------------------------------------
+// printf("\n\nCOMPROBACION DEL PUSH---------------------------------->\n");
+// dest = ft_inistack(9);
+
+// push(&src,&dest);
+// printf("valores del origen---------------------------\n");
+// while (src)
+// {
+//     printf("Vb:%d\n",src->value);
+//     src = src->next;
+// }
+// printf("------------------------------------------------\n\n");
+// printf("valores del destino---------------------------\n");
+// while (dest)
+// {
+//     printf("Vb:%d\n",dest->value);
+//     dest = dest->next;
+// }
+// printf("------------------------------------------------\n\n");
 
 }
