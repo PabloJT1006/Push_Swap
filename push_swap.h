@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 03:26:36 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/10/23 17:11:36 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/10/24 14:43:40 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,14 @@ void    errors(t_list **a_stack, t_list **b_stack);
 int input_ok(char *str);
 int duplicate(t_list *stack);
 // void swap_nodes(t_list **top);
-void    rotate(t_list **stack);
-void    reverse_rotate(t_list **stack);
-
+// void    rotate(t_list **stack);
+// void    reverse_rotate(t_list **stack);
+void    ra(t_list **a);
+void    rb(t_list **b);
+void    rr(t_list **a,t_list **b);
+void sa(t_list **a);
+void sb(t_list **b);
+void ss(t_list **a,t_list **b);
+t_list  *high_node(t_list *stack);
 void push (t_list **src, t_list **dest);
 #endif

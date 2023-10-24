@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 14:16:23 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/10/23 17:58:19 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/10/24 12:00:48 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,19 +38,19 @@ void    reverse_rotate(t_list **stack)
 
 void rra(t_list **a)
 {
-    reverse_rotate(*a);
+    reverse_rotate(a);
     write(1,"rra\n",4);
 }
 
-void rra(t_list **b)
+void rrb(t_list **b)
 {
-    reverse_rotate(*b);
+    reverse_rotate(b);
     write(1,"rrb\n",4);
 }
 
 void rrr(t_list **a, t_list **b)
 {
-    reverse_rotate(*a);
-    reverse_rotate(*b);
+    reverse_rotate(a);
+    reverse_rotate(b);
     write(1,"rra\n",4);
 }

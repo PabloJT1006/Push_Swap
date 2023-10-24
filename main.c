@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 03:34:57 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/10/23 17:46:38 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/10/24 14:22:40 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,16 @@ int main (int argc, char **argv)
     {
         errors(&hola,&dest);
     }
-// PROBANDO ROTATE Y PUSH---------------------------------------------------------------------------
+// PROBANDO ROTATE---------------------------------------------------------------------------
 src = hola;
 aux = ft_inistack(9);
 ft_lstadd_back(&aux,ft_inistack(7));
 ft_lstadd_back(&aux,ft_inistack(65));
-
+ft_lstadd_back(&aux,ft_inistack(6));
+ft_lstadd_back(&aux,ft_inistack(54));
+ft_lstadd_back(&aux,ft_inistack(122));
+dest = aux;
+printf("Nodo con mas valor:%d\n",high_node(aux)->value);
 rotate(&src);
 
 while (src)
@@ -85,6 +89,21 @@ while (src)
     printf("Vsrc:%d\n",src->value);
     src = src->next;
 }
+// PROBANDO SWAP------------------------------------
+printf("PROBANDO SWAP------------------------->\n");
+while (aux)
+{
+    printf("PreSwap:%d\n",aux->value);
+    aux = aux->next;
+}
+swap_nodes(&dest);
+printf("Despues de swap\n");
+while (dest)
+{
+    printf("PostSwap:%d\n",dest->value);
+    dest = dest->next;
+}
+
 // COMPROBANDO PUSH ------------------------------------------------------
 // printf("\n\nCOMPROBACION DEL PUSH---------------------------------->\n");
 // dest = ft_inistack(9);
