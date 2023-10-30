@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 03:34:57 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/10/24 14:22:40 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/10/30 13:38:29 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int main (int argc, char **argv)
    t_list *src;
    t_list *dest = NULL;
    t_list *aux;
+   t_list *lilpep = NULL;
     int cont = 1;
     //COMO NO INICIALICES EL NODO TE VAS A LA PUTA :)
     hola = NULL;
@@ -124,4 +125,18 @@ while (dest)
 // }
 // printf("------------------------------------------------\n\n");
 
+
+printf("PROBANDO TINY SORT------------------------>\n");
+
+lilpep = ft_inistack(65);
+ft_lstadd_back(&lilpep,ft_inistack(9));
+ft_lstadd_back(&lilpep,ft_inistack(7));
+
+lil_sort(&lilpep);
+
+while (lilpep)
+{
+    printf("LilpepV: %d\n", lilpep->value);
+    lilpep = lilpep->next;
+}
 }
