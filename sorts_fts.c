@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 14:02:50 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/10/30 14:09:34 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/10/31 14:05:03 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 //hacer funcion que encuentre el de mayor valor
 //si lo es se hace un rotate para ponerlo abajo
 //una vez hecho esto hacemo un swap en caso de que haga falta
-
+//hacer comprobacion tambien de que ya esta otrdenado
 
 t_list  *high_node(t_list *stack)
 {
@@ -63,6 +63,31 @@ t_list *find_smallest(t_list *stack)
     }
     return (smallest);
 }
+
+
+int sorted (t_list *a)
+{
+    t_list *tmp;
+    t_list *tmp2;
+    int check;
+
+    check = 1;
+    tmp = a;
+    while (tmp)
+    {
+        tmp2 = tmp->next;
+        while (tmp2)
+        {
+            if (tmp->value > tmp2->value)
+                check = 0;    
+            tmp2 = tmp2->next;
+        }
+        tmp = tmp->next;
+        
+    }    
+    return (check);
+}
+
 
 void    extralil_sort(t_list **a)
 {

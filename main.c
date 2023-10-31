@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 03:34:57 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/10/30 13:38:29 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/10/31 14:08:08 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,15 +128,12 @@ while (dest)
 
 printf("PROBANDO TINY SORT------------------------>\n");
 
-lilpep = ft_inistack(65);
-ft_lstadd_back(&lilpep,ft_inistack(9));
-ft_lstadd_back(&lilpep,ft_inistack(7));
+lilpep = ft_inistack(-9);
+ft_lstadd_back(&lilpep,ft_inistack(-73));
+ft_lstadd_back(&lilpep,ft_inistack(90));
 
-lil_sort(&lilpep);
+printf ("Sorted o no sorted: %d",sorted(lilpep));
 
-while (lilpep)
-{
-    printf("LilpepV: %d\n", lilpep->value);
-    lilpep = lilpep->next;
-}
+
+
 }
