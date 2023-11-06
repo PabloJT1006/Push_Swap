@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 03:26:36 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/11/06 20:42:30 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/11/06 20:43:43 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void rrr(t_list **a, t_list **b);
 void sa(t_list **a);
 void sb(t_list **b);
 void ss(t_list **a,t_list **b);
-t_list  *high_node(t_list *stack);
+t_list  *find_highest(t_list *stack);
 void push (t_list **src, t_list **dest);
 void    lil_sort(t_list **a);
 int ft_lstsize(t_list *lst);
