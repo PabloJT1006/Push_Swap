@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 03:34:57 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/10/30 13:38:29 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/11/06 20:36:05 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,10 +128,11 @@ while (dest)
 
 printf("PROBANDO TINY SORT------------------------>\n");
 
-lilpep = ft_inistack(65);
+lilpep = ft_inistack(-65633);
 ft_lstadd_back(&lilpep,ft_inistack(9));
-ft_lstadd_back(&lilpep,ft_inistack(7));
+ft_lstadd_back(&lilpep,ft_inistack(-700));
 
+// printf("Highest :%d\n", high_node(lilpep)->value);
 lil_sort(&lilpep);
 
 while (lilpep)

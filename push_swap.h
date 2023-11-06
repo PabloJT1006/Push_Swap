@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 03:26:36 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/10/30 14:10:16 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/11/06 19:22:22 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,5 @@ void push (t_list **src, t_list **dest);
 void    lil_sort(t_list **a);
 int ft_lstsize(t_list *lst);
 void    extralil_sort(t_list **a);
+t_list *find_smallest(t_list *stack);
 #endif

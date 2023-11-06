@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 14:02:50 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/10/30 14:09:34 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/11/06 20:34:34 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,15 @@
 t_list  *high_node(t_list *stack)
 {
     t_list  *tmp;
-    t_list  *tmp2;
     t_list  *highest;
 
     tmp = stack;
-    
-    tmp2 = tmp->next;
+    highest = stack;
     while (tmp)
     {
-        while (tmp2)
-        {
-            if (tmp->value > tmp2->value)
-                highest = tmp;
-            else
-                highest = tmp2;
-            tmp2=tmp2->next;
-        }
-        tmp=tmp->next;
+        if (tmp->value > highest->value)
+            highest = tmp;
+        tmp = tmp->next;
     }
     return (highest);
 }
@@ -43,22 +35,14 @@ t_list  *high_node(t_list *stack)
 t_list *find_smallest(t_list *stack)
 {
     t_list  *tmp;
-    t_list  *tmp2;
     t_list  *smallest;
 
     tmp = stack;
-    
-    tmp2 = tmp->next;
+    smallest = stack;
     while (tmp)
     {
-        while (tmp2)
-        {
-            if (tmp->value < tmp2->value)
-                smallest = tmp;
-            else
-                smallest = tmp2;
-            tmp2=tmp2->next;
-        }
+        if (tmp->value < smallest->value)
+            smallest = tmp;
         tmp=tmp->next;
     }
     return (smallest);
