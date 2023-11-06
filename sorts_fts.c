@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 14:02:50 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/11/06 20:41:03 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/11/06 20:43:32 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 //una vez hecho esto hacemo un swap en caso de que haga falta
 //hacer comprobacion tambien de que ya esta otrdenado
 
-t_list  *high_node(t_list *stack)
+t_list  *find_highest(t_list *stack)
 {
     t_list  *tmp;
     t_list  *highest;
