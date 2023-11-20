@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 14:02:50 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/11/06 20:43:32 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/11/20 15:08:22 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void    extralil_sort(t_list **a)
 void    lil_sort(t_list **a)
 {
     t_list  *highest_node;
-    highest_node = high_node(*a);
+    highest_node = find_highest(*a);
     if (highest_node->value == (*a)->value)
         ra(a);
     else if (highest_node->value == (*a)->next->value)

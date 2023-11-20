@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 03:34:57 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/11/06 20:41:28 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/11/20 15:11:17 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,95 +48,95 @@ void    generate_stack(char *arg, t_list **stack)
     free(values);
 }
 
-// gilipollas cada arg que este separado por los espacios se coge como un str
-int main (int argc, char **argv)
-{ 
-   t_list *hola;
-   t_list *src;
-   t_list *dest = NULL;
-   t_list *aux;
-   t_list *lilpep = NULL;
-    int cont = 1;
-    //COMO NO INICIALICES EL NODO TE VAS A LA PUTA :)
-    hola = NULL;
-    // while (i < argv)
-    // {
+// // gilipollas cada arg que este separado por los espacios se coge como un str
+// int main (int argc, char **argv)
+// { 
+//    t_list *hola;
+//    t_list *src;
+//    t_list *dest = NULL;
+//    t_list *aux;
+//    t_list *lilpep = NULL;
+//     int cont = 1;
+//     //COMO NO INICIALICES EL NODO TE VAS A LA PUTA :)
+//     hola = NULL;
+//     // while (i < argv)
+//     // {
         
-    // }
-// GENERANDO STACK----------------------------------------------------------------------
-   while (cont < argc)
-   {
-        generate_stack(argv[cont] ,&hola);
-        cont ++;
-   }
-    if (duplicate(hola))
-    {
-        errors(&hola,&dest);
-    }
-// PROBANDO ROTATE---------------------------------------------------------------------------
-src = hola;
-aux = ft_inistack(9);
-ft_lstadd_back(&aux,ft_inistack(7));
-ft_lstadd_back(&aux,ft_inistack(65));
-ft_lstadd_back(&aux,ft_inistack(6));
-ft_lstadd_back(&aux,ft_inistack(54));
-ft_lstadd_back(&aux,ft_inistack(122));
-dest = aux;
-printf("Nodo con mas valor:%d\n",high_node(aux)->value);
-rotate(&src);
+//     // }
+// // GENERANDO STACK----------------------------------------------------------------------
+//    while (cont < argc)
+//    {
+//         generate_stack(argv[cont] ,&hola);
+//         cont ++;
+//    }
+//     if (duplicate(hola))
+//     {
+//         errors(&hola,&dest);
+//     }
+// // PROBANDO ROTATE---------------------------------------------------------------------------
+// src = hola;
+// aux = ft_inistack(9);
+// ft_lstadd_back(&aux,ft_inistack(7));
+// ft_lstadd_back(&aux,ft_inistack(65));
+// ft_lstadd_back(&aux,ft_inistack(6));
+// ft_lstadd_back(&aux,ft_inistack(54));
+// ft_lstadd_back(&aux,ft_inistack(122));
+// dest = aux;
+// printf("Nodo con mas valor:%d\n",find_highest(aux)->value);
+// rotate(&src);
 
-while (src)
-{
-    printf("Vsrc:%d\n",src->value);
-    src = src->next;
-}
-// PROBANDO SWAP------------------------------------
-printf("PROBANDO SWAP------------------------->\n");
-while (aux)
-{
-    printf("PreSwap:%d\n",aux->value);
-    aux = aux->next;
-}
-swap_nodes(&dest);
-printf("Despues de swap\n");
-while (dest)
-{
-    printf("PostSwap:%d\n",dest->value);
-    dest = dest->next;
-}
-
-// COMPROBANDO PUSH ------------------------------------------------------
-// printf("\n\nCOMPROBACION DEL PUSH---------------------------------->\n");
-// dest = ft_inistack(9);
-
-// push(&src,&dest);
-// printf("valores del origen---------------------------\n");
 // while (src)
 // {
-//     printf("Vb:%d\n",src->value);
+//     printf("Vsrc:%d\n",src->value);
 //     src = src->next;
 // }
-// printf("------------------------------------------------\n\n");
-// printf("valores del destino---------------------------\n");
+// // PROBANDO SWAP------------------------------------
+// printf("PROBANDO SWAP------------------------->\n");
+// while (aux)
+// {
+//     printf("PreSwap:%d\n",aux->value);
+//     aux = aux->next;
+// }
+// swap_nodes(&dest);
+// printf("Despues de swap\n");
 // while (dest)
 // {
-//     printf("Vb:%d\n",dest->value);
+//     printf("PostSwap:%d\n",dest->value);
 //     dest = dest->next;
 // }
-// printf("------------------------------------------------\n\n");
+
+// // COMPROBANDO PUSH ------------------------------------------------------
+// // printf("\n\nCOMPROBACION DEL PUSH---------------------------------->\n");
+// // dest = ft_inistack(9);
+
+// // push(&src,&dest);
+// // printf("valores del origen---------------------------\n");
+// // while (src)
+// // {
+// //     printf("Vb:%d\n",src->value);
+// //     src = src->next;
+// // }
+// // printf("------------------------------------------------\n\n");
+// // printf("valores del destino---------------------------\n");
+// // while (dest)
+// // {
+// //     printf("Vb:%d\n",dest->value);
+// //     dest = dest->next;
+// // }
+// // printf("------------------------------------------------\n\n");
 
 
-printf("PROBANDO TINY SORT------------------------>\n");
+// printf("PROBANDO TINY SORT------------------------>\n");
 
-lilpep = ft_inistack(65);
-ft_lstadd_back(&lilpep,ft_inistack(9));
-ft_lstadd_back(&lilpep,ft_inistack(7));
+// lilpep = ft_inistack(65);
+// ft_lstadd_back(&lilpep,ft_inistack(9));
+// ft_lstadd_back(&lilpep,ft_inistack(7));
 
-lil_sort(&lilpep);
+// lil_sort(&lilpep);
 
-while (lilpep)
-{
-    printf("LilpepV: %d\n", lilpep->value);
-    lilpep = lilpep->next;
-}
-}
+// while (lilpep)
+// {
+//     printf("LilpepV: %d\n", lilpep->value);
+//     lilpep = lilpep->next;
+// }
+// }

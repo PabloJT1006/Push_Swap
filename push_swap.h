@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 03:26:36 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/11/06 20:43:43 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/11/20 14:55:11 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,6 @@ void push (t_list **src, t_list **dest);
 void    lil_sort(t_list **a);
 int ft_lstsize(t_list *lst);
 void    extralil_sort(t_list **a);
+void pb(t_list **a, t_list **b);
+void pa(t_list **b, t_list **a);
 #endif

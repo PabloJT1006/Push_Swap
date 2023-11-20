@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 04:03:48 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/10/23 13:18:11 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/11/20 15:09:11 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,15 @@ void push (t_list **src, t_list **dest)
         //con estos datos guardados en push_node, esteblecemos el primero de dest como push_node
         (*dest) = push_node;
     }
+}
+
+void pb(t_list **a, t_list **b)
+{
+    push(a, b);
+    printf("pb\n");
+}
+void pa(t_list **b, t_list **a)
+{
+    push(b, a);
+    printf("pb\n");
 }
