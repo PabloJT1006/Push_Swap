@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 03:26:36 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/11/20 17:44:50 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/11/21 13:54:10 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,17 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdbool.h>
 
 # define PUSH_SWAP_H
 
 typedef struct	t_list
 {
 int			    value;
-int             index;
-struct t_list   target_node;
+int             position;
+int             push_price;
+int             top_ones;
+struct t_list   *target_node;
 struct t_list	*next;
 struct t_list	*prev;
 }               t_list;
