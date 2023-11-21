@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 14:02:50 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/11/20 15:08:22 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/11/20 15:24:47 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,39 +15,6 @@
 //si lo es se hace un rotate para ponerlo abajo
 //una vez hecho esto hacemo un swap en caso de que haga falta
 //hacer comprobacion tambien de que ya esta otrdenado
-
-t_list  *find_highest(t_list *stack)
-{
-    t_list  *tmp;
-    t_list  *highest;
-
-    tmp = stack;
-    highest = stack;
-    while (tmp)
-    {
-        if (tmp->value > highest->value)
-            highest = tmp;
-        tmp = tmp->next;
-    }
-    return (highest);
-}
-
-t_list *find_smallest(t_list *stack)
-{
-    t_list  *tmp;
-    t_list  *smallest;
-
-    tmp = stack;
-    smallest = stack;
-    while (tmp)
-    {
-        if (tmp->value < smallest->value)
-            smallest = tmp;
-        tmp=tmp->next;
-    }
-    return (smallest);
-}
-
 
 int sorted (t_list *a)
 {

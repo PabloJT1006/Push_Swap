@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 19:06:58 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/10/20 03:36:12 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/11/20 17:46:48 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ t_list	*ft_inistack(int value)
 	n_node->value = value;
 	n_node->next = NULL;
     n_node->prev = NULL;
+    n_node->target_node = NULL;
 	return (n_node);
 }
 
