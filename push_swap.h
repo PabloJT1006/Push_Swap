@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 03:26:36 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/11/21 13:54:10 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/11/23 17:18:36 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,15 @@ typedef struct	t_list
 int			    value;
 int             position;
 int             push_price;
-int             top_ones;
+int             cheapest;
+bool            bottom_ones;
 struct t_list   *target_node;
 struct t_list	*next;
 struct t_list	*prev;
 }               t_list;
 
 int	ft_atoi(const char *nptr);
-
 int	ft_isdigit(int c);
-
 char	**ft_split(char const *s, char c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 size_t	ft_strlen(const char *str);
@@ -67,4 +66,5 @@ void    extralil_sort(t_list **a);
 void pb(t_list **a, t_list **b);
 void pa(t_list **b, t_list **a);
 t_list *find_smallest(t_list *stack);
+void set_3nodes(t_list **a, t_list **b);
 #endif

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/20 15:31:53 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/11/21 13:55:25 by pjimenez         ###   ########.fr       */
+/*   Created: 2023/11/23 15:25:37 by pjimenez          #+#    #+#             */
+/*   Updated: 2023/11/23 16:41:48 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,7 @@
     //set_prices (learning)
     //set_cheapest(b)(ola)
 
-void    init_nodes(t_list *a, t_list *b)
-{
-    set_curretn_position(a);
-    set_curretn_position(b);
-    set_targets(a,b);
-    //set_prices
-    //set_cheapest
-}
+
 
 //moirar porque conio esta el de debajo de la media como true
 void    set_curretn_position(t_list *stack)
@@ -40,13 +33,14 @@ void    set_curretn_position(t_list *stack)
     if (stack == NULL)
         return ;
     media = ft_lstsize(stack) / 2;
+    printf("MEDIA: %d\n",media);
     while (stack)
     {
         stack->position = i;
         if (i <= media)
-            stack->top_ones = true;
+            stack->bottom_ones = false;
         else
-            stack->top_ones = false;
+            stack->bottom_ones = true;
         stack = stack->next;
         i++;
     }
@@ -65,7 +59,7 @@ void    set_targets(t_list *a, t_list *b)
     while(b)
     {
         aux_a = a;
-        best_option = find_highest(a)->value; //esto podira ser tambine el highest de a (creo)
+        best_option = __LONG_MAX__; //esto podira ser tambine el highest de a (creo)
         while(aux_a)
         {
             //si no se cumple esta condicion quieres decir que el nodo actual de b,
@@ -78,7 +72,7 @@ void    set_targets(t_list *a, t_list *b)
             }
             aux_a = aux_a->next;
         }
-        if (best_option == find_highest(a)->value)
+        if (best_option == __LONG_MAX__)
         {
             b->target_node=find_smallest(a);
         }
@@ -88,25 +82,92 @@ void    set_targets(t_list *a, t_list *b)
     }
 }
 
+
+
+void    set_costs(t_list *a, t_list *b)
+{
+    int len_b;
+    int len_a;
+
+    len_a = ft_lstsize(a);
+    len_b = ft_lstsize(b);
+    
+    while (b)
+    {
+        b->push_price = b->position;
+        
+        if (b->bottom_ones)
+            b->push_price = len_b - (b->position);
+        if (b->target_node->bottom_ones)
+            b->push_price += len_a -( b->target_node->position);
+        else
+            b->push_price += (b->target_node->position);
+        b = b->next;
+    }
+    
+}
+
+void    set_chapest(t_list *stack)
+{
+    t_list *cheapest;
+    
+    cheapest = stack;
+    while(stack)
+    {
+        if (stack->push_price <= cheapest->push_price
+            && stack->position <= cheapest->position)
+        {
+                cheapest = stack;
+                stack->cheapest = 1;
+        }
+        else
+            stack->cheapest = 0;
+        stack = stack->next;
+        
+    }
+    
+}
+
+void    init_nodes(t_list *a, t_list *b)
+{
+    set_curretn_position(a);
+    set_curretn_position(b);   
+    set_targets(a,b);
+    set_costs(a,b);
+    set_chapest(b);
+}
+
 int main ()
 {
     t_list *a;
     t_list *b;
+    int n;
     
-    a = ft_inistack(10);
-    ft_lstadd_back(&a,ft_inistack(2));
-    ft_lstadd_back(&a,ft_inistack(-3));
+    a = ft_inistack(-23);
+    ft_lstadd_back(&a,ft_inistack(96));
+    ft_lstadd_back(&a,ft_inistack(-16));
+    ft_lstadd_back(&a,ft_inistack(-21));
     
-    b = ft_inistack(-4);
-    ft_lstadd_back(&b,ft_inistack(1));
-    ft_lstadd_back(&b,ft_inistack(11));
-    ft_lstadd_back(&b,ft_inistack(-3));
+    b = ft_inistack(-48);
+    ft_lstadd_back(&b,ft_inistack(100));
+    ft_lstadd_back(&b,ft_inistack(9));
+    ft_lstadd_back(&b,ft_inistack(-1));
+    ft_lstadd_back(&b,ft_inistack(-8));
+    ft_lstadd_back(&b,ft_inistack(-20));
+    ft_lstadd_back(&b,ft_inistack(77));
+    ft_lstadd_back(&b,ft_inistack(10));
+    
+    
 
-    set_targets(a,b);
+    init_nodes(a,b);
 
     while (b)
     {
-        printf("value: %d \ttarget_node: %d\n",b->value,b->target_node->value);
+        if (b->bottom_ones == true)
+        {
+            n = 1;
+        }
+        printf("value: %d \ttarget_node: %d  \tposition:%d \tbotton_one:%d \tCosts:%d \tcheapest:%d\n",b->value,b->target_node->value,b->position,n, b->push_price,b->cheapest);
         b = b ->next;
     }
 
