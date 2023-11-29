@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 15:25:37 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/11/23 16:41:48 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/11/29 13:53:25 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void    set_curretn_position(t_list *stack)
     if (stack == NULL)
         return ;
     media = ft_lstsize(stack) / 2;
-    printf("MEDIA: %d\n",media);
     while (stack)
     {
         stack->position = i;
@@ -118,15 +117,24 @@ void    set_chapest(t_list *stack)
             && stack->position <= cheapest->position)
         {
                 cheapest = stack;
-                stack->cheapest = 1;
+                stack->cheapest = true;
         }
         else
-            stack->cheapest = 0;
+            stack->cheapest = false;
         stack = stack->next;
         
     }
     
 }
+
+t_list  *return_cheapest(t_list *stack)
+{
+    while (!(stack->cheapest))
+        stack = stack->next;
+    return(stack);
+    
+}
+
 
 void    init_nodes(t_list *a, t_list *b)
 {
@@ -137,38 +145,37 @@ void    init_nodes(t_list *a, t_list *b)
     set_chapest(b);
 }
 
-int main ()
-{
-    t_list *a;
-    t_list *b;
-    int n;
+// int main ()
+// {
+//     t_list *a;
+//     t_list *b = NULL;
     
-    a = ft_inistack(-23);
-    ft_lstadd_back(&a,ft_inistack(96));
-    ft_lstadd_back(&a,ft_inistack(-16));
-    ft_lstadd_back(&a,ft_inistack(-21));
     
-    b = ft_inistack(-48);
-    ft_lstadd_back(&b,ft_inistack(100));
-    ft_lstadd_back(&b,ft_inistack(9));
-    ft_lstadd_back(&b,ft_inistack(-1));
-    ft_lstadd_back(&b,ft_inistack(-8));
-    ft_lstadd_back(&b,ft_inistack(-20));
-    ft_lstadd_back(&b,ft_inistack(77));
-    ft_lstadd_back(&b,ft_inistack(10));
+//     a = ft_inistack(-23);
+//     ft_lstadd_back(&a,ft_inistack(96));
+//     ft_lstadd_back(&a,ft_inistack(-16));
+//     ft_lstadd_back(&a,ft_inistack(-21));
+//     ft_lstadd_back(&a,ft_inistack(-210));
+//     ft_lstadd_back(&a,ft_inistack(-12));
+    
+//     // b = ft_inistack(-48);
+//     // ft_lstadd_back(&b,ft_inistack(100));
+//     // ft_lstadd_back(&b,ft_inistack(9));
+//     // ft_lstadd_back(&b,ft_inistack(-1));
+//     // ft_lstadd_back(&b,ft_inistack(-8));
+//     // ft_lstadd_back(&b,ft_inistack(-20));
+//     // ft_lstadd_back(&b,ft_inistack(77));
+//     // ft_lstadd_back(&b,ft_inistack(10));
     
     
 
-    init_nodes(a,b);
+//     push_swap(&a,&b);
+    
+//     while (b)
+//     {
+     
+//         printf("si: %d\n",b->value);
+//         b = b->next;
+//     }
 
-    while (b)
-    {
-        if (b->bottom_ones == true)
-        {
-            n = 1;
-        }
-        printf("value: %d \ttarget_node: %d  \tposition:%d \tbotton_one:%d \tCosts:%d \tcheapest:%d\n",b->value,b->target_node->value,b->position,n, b->push_price,b->cheapest);
-        b = b ->next;
-    }
-
-}
+// }

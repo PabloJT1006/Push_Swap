@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 04:03:48 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/11/20 15:09:11 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/11/27 14:54:33 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,18 @@ void push (t_list **src, t_list **dest)
     *src = (*src)->next;
     if (*src)
         (*src)->prev = NULL;
-
+    push_node->prev = NULL;
     if (*dest == NULL)
-       *dest = ft_inistack(push_node->value);
+    {
+       *dest = push_node;
+       push_node->next = NULL;
+    }
     else
     {
         //le decimos al nodo a meter que el siguiente es el primero de destino
         push_node->next = (*dest);
         //tmb le decimios que el previo va a ser null, ya que al ser primero no hay
         push_node->next->prev = push_node;
-        push_node->prev = NULL;
         //con estos datos guardados en push_node, esteblecemos el primero de dest como push_node
         (*dest) = push_node;
     }
@@ -47,5 +49,5 @@ void pb(t_list **a, t_list **b)
 void pa(t_list **b, t_list **a)
 {
     push(b, a);
-    printf("pb\n");
+    printf("pa\n");
 }

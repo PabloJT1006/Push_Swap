@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 03:34:57 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/11/21 11:36:14 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/11/29 14:48:38 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,3 +140,22 @@ void    generate_stack(char *arg, t_list **stack)
 //     lilpep = lilpep->next;
 // }
 // }
+
+int main (int ac, char **av)
+{
+    int cont = 1;
+    t_list *hola = NULL;
+    t_list *dest = NULL;
+    while (cont < ac)
+   {
+        generate_stack(av[cont] ,&hola);
+        cont ++;
+   }
+    if (duplicate(hola))
+    {
+        errors(&hola,&dest);
+    }
+    push_swap(&hola,&dest);
+   
+    
+}

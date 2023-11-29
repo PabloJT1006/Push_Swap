@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lil_sorts_fts.c                                    :+:      :+:    :+:   */
+/*   sorts_fts.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 14:02:50 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/11/23 17:19:23 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/11/29 13:49:03 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,9 @@ void    lil_sort(t_list **a)
         sa(a);
 }
 
-void    sort_five(t_list *a, t_list*b)
-{
-    set_3nodes(&a,&b);
-    lil_sort(&a);
-}
+// void    sort_five(t_list *a, t_list*b)
+// {
+//     set_3nodes(&a,&b);
+//     lil_sort(&a);
+// }
+

@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 03:26:36 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/11/23 17:18:36 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/11/29 14:24:15 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct	t_list
 int			    value;
 int             position;
 int             push_price;
-int             cheapest;
+bool             cheapest;
 bool            bottom_ones;
 struct t_list   *target_node;
 struct t_list	*next;
@@ -67,4 +67,11 @@ void pb(t_list **a, t_list **b);
 void pa(t_list **b, t_list **a);
 t_list *find_smallest(t_list *stack);
 void set_3nodes(t_list **a, t_list **b);
+void    push_swap(t_list **a, t_list **b);
+void    init_nodes(t_list *a, t_list *b);
+t_list  *return_cheapest(t_list *stack);
+void    set_curretn_position(t_list *stack);
+void    rotate_both(t_list **a, t_list **b, t_list *cheapest);
+void    reverse_rotate_both(t_list **a, t_list **b, t_list *cheapest);
+void last_rotation(t_list **stack, t_list *cheapest, char name);
 #endif
