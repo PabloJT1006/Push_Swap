@@ -6,11 +6,12 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:55:48 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/11/30 11:17:41 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/11/29 17:00:39 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 
 void set_3nodes(t_list **a, t_list **b)
 {
