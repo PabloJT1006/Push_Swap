@@ -6,16 +6,12 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 18:41:10 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/10/12 23:22:24 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/12/15 12:12:43 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-//funcion la cual devuelve una cadena de lo contenido en s
-//desde el start hasta len(long maxima del substr)
-//si el s_len es mayor a la diferencia entre start y len este se igualara
-//len se igualara a la diferencia entre s_len y start para que se llegue hasta
-//el final de la cadena e vez de que se pase de tamaño
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*cpy;

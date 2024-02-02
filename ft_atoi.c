@@ -6,16 +6,26 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 11:59:01 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/10/12 23:20:18 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/12/15 15:39:59 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-int	ft_atoi(const char *nptr)
+
+void	ft_atoi_errors(long int result)
 {
-	unsigned long long	result;
-	int					i;
-	int					negative;
+	if (result > INT_MAX || result < INT_MIN)
+	{
+		write(2, "Error\n", 6);
+		exit(1);
+	}
+}
+
+long int	ft_atoi(const char *nptr)
+{
+	long int	result;
+	int			i;
+	int			negative;
 
 	result = 0;
 	i = 0;
@@ -34,13 +44,7 @@ int	ft_atoi(const char *nptr)
 		i++;
 	}
 	if (negative)
-	{
 		result = result * -1;
-	}
+	ft_atoi_errors(result);
 	return (result);
 }
-// int main (void)
-// {
-// 	printf("%d",ft_atoi("1234"));
-// 	return (0);
-// }

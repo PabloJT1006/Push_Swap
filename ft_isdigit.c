@@ -6,12 +6,12 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 16:46:49 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/10/12 23:20:15 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/12/15 15:30:49 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "push_swap.h"
+
 int	ft_isdigit(int c)
 {
 	if ((c >= '0' && c <= '9'))
